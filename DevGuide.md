@@ -69,21 +69,9 @@ git clone git@github.com:NationalSecurityAgency/ghidra.git
 
 Ghidra's build uses artifacts named as available in Maven Central and Bintray JCenter, when possible.
 Unfortunately, in some cases, the artifact or the particular version we desire is not available.
-So, in addition to mavenCentral and jcenter, you must configure a flatDir-style repository for manually-downloaded dependencies.
+So, in addition to mavenCentral and jcenter, you must use a flatDir-style repository for manually-downloaded dependencies in `~/flatRepo` folder
 
-Create `~/.gradle/init.d/repos.gradle` with the following contents:
-
-```groovy
-ext.HOME = System.getProperty('user.home')
-
-allprojects {
-    repositories {
-        mavenCentral()
-        jcenter()
-        flatDir name:'flat', dirs:["$HOME/flatRepo"]
-    }
-}
-```
+If you would like to use other mechanisms you can change gradleScripts/setupRepositories.gradle script, but you're on your own.
 
 Create the `~/flatRepo` folder to hold the manually-downloaded dependencies:
 
@@ -91,8 +79,6 @@ Create the `~/flatRepo` folder to hold the manually-downloaded dependencies:
 mkdir ~/flatRepo
 ```
 
-If you prefer not to modify your user-wide Gradle configuration, you may use
-Gradle's other init script facilities, but you're on your own.
 
 ## Get Dependencies for FileFormats:
 
