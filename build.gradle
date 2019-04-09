@@ -6,7 +6,7 @@ apply from: "gradleScripts/eclipseLauncher.gradle"
 /***************************************************************************************
  * Make sure the correct version of gradle is being used
  ***************************************************************************************/
-project.ext.REQ_GRADLE_VERSION = "5.0"
+project.ext.REQ_GRADLE_VERSION = "5.3.1"
 if (gradle.gradleVersion != project.ext.REQ_GRADLE_VERSION) {
 	throw new GradleException("Requires Gradle $project.ext.REQ_GRADLE_VERSION, but was run with $gradle.gradleVersion")
 }
