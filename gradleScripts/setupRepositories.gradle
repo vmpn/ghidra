@@ -1,0 +1,9 @@
+ext.LOCAL_REPO = System.getProperty('user.home') + "/flatRepo"
+
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+        flatDir name:'flat', dirs:["${LOCAL_REPO}"]
+    }
+}
